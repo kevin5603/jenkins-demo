@@ -12,6 +12,6 @@ public class DemoController {
 
     @GetMapping("{name}")
     public String hello(@PathVariable("name") String name) {
-        return "Hello " + name + " !!";
+        return "Hello " + name + " again ~~";
     }
 }
