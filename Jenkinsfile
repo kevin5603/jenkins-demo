@@ -20,8 +20,8 @@ pipeline {
                          sshCommand remote: remote, command: "docker image ls"
                          sshCommand remote: remote, command: "docker pull rabbitmq"
                          sshCommand remote: remote, command: "cd /home/ec2-user/project/line-bot-demo"
-                         sshCommand remote: remote, command: "ls -al"
-                         sshCommand remote: remote, command: "docker-compose up -d"
+                         sshCommand remote: remote, command: "pwd"
+                         sshCommand remote: remote, command: "docker-compose -f project/line-bot-demo/docker-compose.yml up -d"
 //                          sshScript remote: remote, script: "restart.sh"
 //                             writeFile file: 'test.sh', text: 'ls -al'
 //                             sshPut remote: remote, from: 'test.sh', into: '.'
