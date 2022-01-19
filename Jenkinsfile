@@ -9,6 +9,7 @@ pipeline {
             steps {
                 
                 sh 'ls -al'
+                sh 'cat Jenkinsfile'
                 
             }
         }
