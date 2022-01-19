@@ -127,6 +127,16 @@
                 <configuration>
                     <from>
                         <image>adoptopenjdk:11-hotspot-focal</image>
+                        <platforms>
+                            <platform>
+                                <architecture>amd64</architecture>
+                                <os>linux</os>
+                            </platform>
+                            <platform>
+                                <architecture>arm64</architecture>
+                                <os>linux</os>
+                            </platform>
+                        </platforms>
                     </from>
                     <to>
                         <image>docker.io/kevin5603/jenkins-demo:2.0</image>
