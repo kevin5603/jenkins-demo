@@ -15,7 +15,8 @@ pipeline {
 //                 }
                     withCredentials([file(credentialsId: 'Jenkins-master', variable: 'PEM')]) {
                        script {
-                         def remote = [name: 'test', host: 'line.bot.kevin5603.click', user: 'ec2-user', identityFile: $PEM, allowAnyHosts: true]
+                         def remote = [name: 'test', host: 'line.bot.kevin5603.click', user: 'ec2-user', allowAnyHosts: true]
+                         remote.identityFile = PEM
                          sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
                        }
                     }
