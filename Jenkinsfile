@@ -1,12 +1,16 @@
 pipeline {
     agent any
+    tools {
+        maven 'my-maven'
+    }
 
     stages {
         stage('build code') {
             steps {
                 git 'https://github.com/kevin5603/jenkins-demo.git'
                 sh 'ls -al'
-                sh './mvnw -ntp clean compile jib:build'
+                sh 'mvn -v'
+                sh 'mvnw -ntp clean compile jib:build'
             }
         }
         stage('Test') {
