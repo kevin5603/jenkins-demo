@@ -7,10 +7,10 @@ pipeline {
     stages {
         stage('build code') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-account')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-account', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'))]) {
                     sh 'ls -al'
                     sh 'cat Jenkinsfile'
-                    sh './mvnw -ntp clean compile jib:build'
+                    sh './mvnw -ntp clean compile jib:build -Djib.to.auth.username=$USERNAME -Djib.to.auth.password=$PASSWORD'
                 }
             }
         }
