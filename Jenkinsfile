@@ -7,10 +7,9 @@ pipeline {
     stages {
         stage('build code') {
             steps {
-                git 'https://github.com/kevin5603/jenkins-demo.git'
+                
                 sh 'ls -al'
-                sh 'mvn -v'
-                sh 'mvn -ntp clean compile jib:build'
+                
             }
         }
         stage('Test') {
