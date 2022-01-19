@@ -137,7 +137,7 @@
                 <version>3.1.4</version>
                 <configuration>
                     <to>
-                        <image>docker.io/kevin5603/jenkins-demo</image>
+                        <image>docker.io/kevin5603/jenkins-demo:1.0</image>
                     </to>
                 </configuration>
             </plugin>

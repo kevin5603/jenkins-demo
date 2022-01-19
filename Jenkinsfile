@@ -7,11 +7,11 @@ pipeline {
     stages {
         stage('build code') {
             steps {
-                
-                sh 'ls -al'
-                sh 'cat Jenkinsfile'
-                sh './mvnw -ntp clean compile jib:build'
-                
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-account')]) {
+                    sh 'ls -al'
+                    sh 'cat Jenkinsfile'
+                    sh './mvnw -ntp clean compile jib:build'
+                }
             }
         }
         stage('Test') {
