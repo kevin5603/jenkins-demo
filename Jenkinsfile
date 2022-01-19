@@ -7,11 +7,16 @@ pipeline {
     stages {
         stage('build code') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-account', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-                    sh 'ls -al'
-                    sh 'cat Jenkinsfile'
-                    sh './mvnw clean compile jib:build -Djib.to.auth.username=$USERNAME -Djib.to.auth.password=$PASSWORD'
-                }
+//                 withCredentials([usernamePassword(credentialsId: 'docker-hub-account', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+//                     sh 'ls -al'
+//                     sh 'cat Jenkinsfile'
+//                     sh './mvnw clean compile jib:build -Djib.to.auth.username=$USERNAME -Djib.to.auth.password=$PASSWORD'
+//                 }
+                    withCredentials([file(credentialsId: 'Jenkins-master', variable: 'PEM')]) {
+                        // some block
+                        sh 'ssh -i $PEM ec2-user@line.bot.kevin5603.click'
+                        sh 'ls -al'
+                    }
             }
         }
         stage('Test') {
