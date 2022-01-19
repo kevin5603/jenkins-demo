@@ -18,8 +18,7 @@ pipeline {
             steps {
                     withCredentials([file(credentialsId: 'Jenkins-master', variable: 'PEM_FILE')]) {
                        script {
-                         def remote = [name: 'ec2', host: 'project.demo.kevin5603.click', user: 'ec2-user',
-                                identityFile= PEM_FILE, allowAnyHosts: true]
+                         def remote = [name: 'ec2', host: 'project.demo.kevin5603.click', user: 'ec2-user', identityFile: PEM_FILE, allowAnyHosts: true]
                          sshCommand remote: remote, command: "docker-compose pull web"
                          sshCommand remote: remote, command: "docker-compose -f project/line-bot-demo/docker-compose.yml restart"
                        }
