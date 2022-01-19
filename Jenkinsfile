@@ -1,13 +1,10 @@
 pipeline {
     agent any
-    tools {
-        maven "my-maven"
-    }
 
     stages {
         stage('build code') {
             steps {
-                git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                git 'https://github.com/kevin5603/jenkins-demo.git'
                 git 'mvn clean compile jib:build'
             }
         }
