@@ -18,7 +18,10 @@ pipeline {
                          def remote = [name: 'test', host: 'line.bot.kevin5603.click', user: 'ec2-user', allowAnyHosts: true]
                          remote.identityFile = PEM
                          sshCommand remote: remote, command: "docker image ls"
-                         sshCommand remote: remote, command: "docker pull mysql"
+                         sshCommand remote: remote, command: "docker pull rabbitmq"
+                         sshCommand remote: remote, command: "cd /home/ec2-user/project/line-bot-demo"
+                         sshCommand remote: remote, command: "ls -al"
+                         sshCommand remote: remote, command: "docker-compose up -d"
 //                          sshScript remote: remote, script: "restart.sh"
 //                             writeFile file: 'test.sh', text: 'ls -al'
 //                             sshPut remote: remote, from: 'test.sh', into: '.'
