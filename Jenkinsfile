@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
     tools {
@@ -13,9 +14,10 @@ pipeline {
 //                     sh './mvnw clean compile jib:build -Djib.to.auth.username=$USERNAME -Djib.to.auth.password=$PASSWORD'
 //                 }
                     withCredentials([file(credentialsId: 'Jenkins-master', variable: 'PEM')]) {
-                        // some block
-                        sh 'ssh -i $PEM ec2-user@line.bot.kevin5603.click'
-                        sh 'ls -al'
+                       script {
+                         def remote = [name: 'test', host: 'line.bot.kevin5603.click', user: 'ec2-user', identityFile: $PEM, allowAnyHosts: true]
+                         sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
+                       }
                     }
             }
         }
