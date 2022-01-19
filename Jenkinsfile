@@ -17,11 +17,12 @@ pipeline {
                        script {
                          def remote = [name: 'test', host: 'line.bot.kevin5603.click', user: 'ec2-user', allowAnyHosts: true]
                          remote.identityFile = PEM
-//                          sshCommand remote: remote, command: "ls -al"
+                         sshCommand remote: remote, command: "docker image ls"
+                         sshCommand remote: remote, command: "docker pull mysql"
 //                          sshScript remote: remote, script: "restart.sh"
 //                             writeFile file: 'test.sh', text: 'ls -al'
 //                             sshPut remote: remote, from: 'test.sh', into: '.'
-                            sshScript remote: remote, script: "test.sh"
+//                             sshScript remote: remote, script: "test.sh"
                        }
                     }
             }
