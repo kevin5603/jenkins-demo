@@ -1,2 +1,2 @@
 # jenkins-demo
-exercise jenkins CI
+exercise jenkins CICD
