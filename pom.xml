@@ -139,7 +139,7 @@
                         </platforms>
                     </from>
                     <to>
-                        <image>docker.io/kevin5603/jenkins-demo:2.0</image>
+                        <image>docker.io/kevin5603/line-bot</image>
                     </to>
                 </configuration>
             </plugin>
