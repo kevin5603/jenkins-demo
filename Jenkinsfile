@@ -10,7 +10,7 @@ pipeline {
                 git 'https://github.com/kevin5603/jenkins-demo.git'
                 sh 'ls -al'
                 sh 'mvn -v'
-                sh 'mvnw -ntp clean compile jib:build'
+                sh 'mvn -ntp clean compile jib:build'
             }
         }
         stage('Test') {
