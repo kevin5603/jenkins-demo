@@ -10,6 +10,7 @@ pipeline {
                 
                 sh 'ls -al'
                 sh 'cat Jenkinsfile'
+                sh './mvnw -ntp clean compile jib:build'
                 
             }
         }
